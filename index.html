@@ -3,174 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Osaki Dev</title>
+    <title>Osaki Dev | Portfolio</title>
     <link rel="icon" type="image/jpg" href="/img/favicon.ico"/>
-    <link rel="preload" href="css/normalize.css" as="style">
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="css/slick.css"/>
-    <script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div style="text-align: center;">
-            <h1>Osaki Dev</h1>
+    <!-- Matrix Rain Effect Canvas -->
+    <canvas id="matrix-canvas"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="terminal-prompt">$</span> <span class="logo-text">osaki_dev</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">home</a></li>
+                <li><a href="#about" class="nav-link">about</a></li>
+                <li><a href="#projects" class="nav-link">projects</a></li>
+                <li><a href="#contact" class="nav-link">contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-    </header>
-    <div class="nav-bg">
-        <nav class="main-nav contenedor">
-            <a href="#">Inicio</a>
-            <a href="#">Proyectos</a>
-            <a href="#">Sobre mí</a>
-            <a href="#">Contacto</a>
-        </nav>    
-    </div>
-    <section class="hero">
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
         <div class="hero-content">
-            <h2>Desarrollador de Aplicaciones Multiplataforma 👨‍💻</h2>
-            <br>
-            <p>
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-pin-2" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M12 18.5l-3 -1.5l-6 3v-13l6 -3l6 3l6 -3v7" />
-                    <path d="M9 4v13" />
-                    <path d="M15 7v5" />
-                    <path d="M21.121 20.121a3 3 0 1 0 -4.242 0c.418 .419 1.125 1.045 2.121 1.879c1.051 -.89 1.759 -1.516 2.121 -1.879z" />
-                    <path d="M19 18v.01" />
-                  </svg>
-            </p>
-            <p>Cáceres, Extremadura, España</p>
-            <p style="margin-top: 10px;">Java | Python | HTML/CSS/JS | Android</p>
-            <a href="https://www.linkedin.com/in/alejamt00/" target="_blank">LinkedIn</a>
-            <a href="https://github.com/alejamt00" target="_blank" style="margin-left: 10px;">GitHub</a>    
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="btn-close"></span>
+                        <span class="btn-minimize"></span>
+                        <span class="btn-maximize"></span>
+                    </div>
+                    <div class="terminal-title">osaki@portfolio:~$</div>
+                </div>
+                <div class="terminal-body">
+                    <p class="terminal-line"><span class="prompt">$</span> whoami</p>
+                    <p class="terminal-output typing-effect">Alejandro "Osaki" Moreno Tejeda</p>
+                    <p class="terminal-line"><span class="prompt">$</span> cat role.txt</p>
+                    <p class="terminal-output typing-effect">Desarrollador de Aplicaciones Multiplataforma</p>
+                    <p class="terminal-line"><span class="prompt">$</span> echo $SKILLS</p>
+                    <p class="terminal-output typing-effect">Java | Python | HTML/CSS/JS | Android | Firebase</p>
+                    <p class="terminal-line"><span class="prompt">$</span> locate osaki</p>
+                    <p class="terminal-output typing-effect">📍 Cáceres, Extremadura, España</p>
+                    <p class="terminal-line blink-cursor"><span class="prompt">$</span><span class="cursor">_</span></p>
+                </div>
+            </div>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">
+                    <span class="btn-icon">{'</span>
+                    <span class="btn-text">Ver Proyectos</span>
+                    <span class="btn-icon">'}</span>
+                </a>
+                <a href="https://github.com/alejamt00" target="_blank" class="btn btn-secondary">
+                    <span class="btn-icon">&lt;</span>
+                    <span class="btn-text">GitHub</span>
+                    <span class="btn-icon">/&gt;</span>
+                </a>
+            </div>
         </div>
     </section>
 
-    <main class="slider-container">
-        <section class="slider-item">
-          <h3>TuneBox</h3>
-          <p><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-android" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M4 10l0 6" />
-              <path d="M20 10l0 6" />
-              <path d="M7 9h10v8a1 1 0 0 1 -1 1h-8a1 1 0 0 1 -1 -1v-8a5 5 0 0 1 10 0" />
-              <path d="M8 3l1 2" />
-              <path d="M16 3l-1 2" />
-              <path d="M9 18l0 3" />
-              <path d="M15 18l0 3" />
-            </svg></p>
-          <p>App Android tipo red social para amantes de la música. Firebase como backend, permite crear usuarios y compartir gustos musicales en TimeLine específicas por género musical.</p>
-          <a href="https://github.com/alejamt00/TuneBox-Android-app" target="_blank" style="color: #27e120; text-decoration: underline;">Ver en GitHub</a>
-        </section>
-        <section class="slider-item">
-          <h3>WallaScraper</h3>
-          <p><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-python" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M12 9h-7a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h3" />
-              <path d="M12 15h7a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-3" />
-              <path d="M8 9v-4a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v5a2 2 0 0 1 -2 2h-4a2 2 0 0 0 -2 2v5a2 2 0 0 0 2 2h4a2 2 0 0 0 2 -2v-4" />
-              <path d="M11 6l0 .01" />
-              <path d="M13 18l0 .01" />
-            </svg></p>
-          <p>Scraper para Wallapop con notificaciones automáticas vía bot de Telegram. Desarrollado en Python para alertar sobre nuevas publicaciones de productos específicos.</p>
-          <a href="https://github.com/alejamt00/WallaScraper" target="_blank" style="color: #27e120; text-decoration: underline;">Ver en GitHub</a>
-        </section>
-        <section class="slider-item">
-          <h3>Spotify Song Tracker</h3>
-          <p><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-music" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <circle cx="6" cy="17" r="3" />
-              <circle cx="16" cy="17" r="3" />
-              <polyline points="9 17 9 4 19 4 19 17" />
-              <line x1="9" y1="8" x2="19" y2="8" />
-            </svg></p>
-          <p>Aplicación web para OBS que muestra en tiempo real la canción que estás escuchando en Spotify. Perfecta para streamers.</p>
-          <a href="https://github.com/alejamt00/Spotify-Song-Tracker-for-OBS" target="_blank" style="color: #27e120; text-decoration: underline;">Ver en GitHub</a>
-        </section>
-        <section class="slider-item">
-          <h3>Matrix Chat for OBS</h3>
-          <p><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-message-2" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <path d="M8 9h8" />
-              <path d="M8 13h6" />
-              <path d="M9 18h-3a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-3l-3 3l-3 -3z" />
-            </svg></p>
-          <p>HTML para OBS que muestra el chat en pantalla con efecto estilo Matrix. Ideal para darle un toque único a tus streams.</p>
-          <a href="https://github.com/alejamt00/Matrix-like-chat-for-OBS" target="_blank" style="color: #27e120; text-decoration: underline;">Ver en GitHub</a>
-        </section>
-        <section class="slider-item">
-          <h3>AntiPromos Extension</h3>
-          <p><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-code" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <polyline points="7 8 3 12 7 16" />
-              <polyline points="17 8 21 12 17 16" />
-              <line x1="14" y1="4" x2="10" y2="20" />
-            </svg></p>
-          <p>Extensión para Microsoft Edge que elimina automáticamente secciones promocionales del sitio PiviGames. JavaScript puro.</p>
-          <a href="https://github.com/alejamt00/AntiPromos-PiviGames-Extension" target="_blank" style="color: #27e120; text-decoration: underline;">Ver en GitHub</a>
-        </section>
-        <section class="slider-item">
-          <h3>Xirtam Media Player</h3>
-          <p><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-device-mobile" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <rect x="7" y="4" width="10" height="16" rx="1" />
-              <path d="M11 5h2" />
-              <path d="M12 17v.01" />
-            </svg></p>
-          <p>Reproductor multimedia para Android desarrollado como proyecto de clase. Permite reproducir audio y gestionar listas de reproducción.</p>
-          <a href="https://github.com/alejamt00/Xirtam" target="_blank" style="color: #27e120; text-decoration: underline;">Ver en GitHub</a>
-        </section>
-      </main>
-      
-
-    <section>
-        <h2>Contacto</h2>
-        <form>
-            <fieldset>
-                <legend>Contáctame rellenando los siguientes campos</legend>
-
-                <div>
-                    <label>Nombre</label>
-                    <input type="text" placeholder="Tu nombre">     
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-bracket">&lt;</span>about<span class="title-bracket">/&gt;</span>
+            </h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p class="code-comment">// Sobre mí</p>
+                    <p>Estudiante de <strong>DAM (Desarrollo de Aplicaciones Multiplataforma)</strong> apasionado por la tecnología y el desarrollo de software.</p>
+                    <p>Me encanta crear aplicaciones que resuelvan problemas reales, desde apps Android hasta herramientas web y scripts de automatización.</p>
+                    <p class="code-comment">// Cuando no estoy programando...</p>
+                    <p>Disfruto explorando nuevas tecnologías, contribuyendo a proyectos open source y compartiendo conocimiento con la comunidad.</p>
                 </div>
-                <div>
-                    <label>Teléfono</label>
-                    <input type="tel" placeholder="Tu teléfono">    
+                <div class="tech-stack">
+                    <h3 class="stack-title">// Tech Stack</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <span class="tech-icon">☕</span>
+                            <span class="tech-name">Java</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon">🐍</span>
+                            <span class="tech-name">Python</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon">🤖</span>
+                            <span class="tech-name">Android</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon">🌐</span>
+                            <span class="tech-name">HTML/CSS/JS</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon">🔥</span>
+                            <span class="tech-name">Firebase</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-icon">💾</span>
+                            <span class="tech-name">SQL</span>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <label>Correo</label>
-                    <input type="email" placeholder="Tu email">     
-                </div>
-                <div>
-                    <label>Mensaje</label>
-                    <textarea></textarea>
-                    <input type="submit" value="Enviar">    
-                </div>
-            </fieldset>
-        </form>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Alejandro "Osaki" Moreno Tejeda. All Rights Reserved.</p>
+    <!-- Projects Section -->
+    <section id="projects" class="section section-dark">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-bracket">&lt;</span>projects<span class="title-bracket">/&gt;</span>
+            </h2>
+            <div class="projects-grid">
+                <!-- TuneBox -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🤖</div>
+                        <div class="project-tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">TuneBox</h3>
+                    <p class="project-description">App Android tipo red social para amantes de la música. Firebase como backend, permite crear usuarios y compartir gustos musicales en TimeLine específicas por género musical.</p>
+                    <div class="project-footer">
+                        <a href="https://github.com/alejamt00/TuneBox-Android-app" target="_blank" class="project-link">
+                            <span>Ver en GitHub</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- WallaScraper -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🐍</div>
+                        <div class="project-tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Telegram Bot</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">WallaScraper</h3>
+                    <p class="project-description">Scraper para Wallapop con notificaciones automáticas vía bot de Telegram. Desarrollado en Python para alertar sobre nuevas publicaciones de productos específicos.</p>
+                    <div class="project-footer">
+                        <a href="https://github.com/alejamt00/WallaScraper" target="_blank" class="project-link">
+                            <span>Ver en GitHub</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Spotify Song Tracker -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🎵</div>
+                        <div class="project-tech-tags">
+                            <span class="tech-tag">HTML/JS</span>
+                            <span class="tech-tag">OBS</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Spotify Song Tracker</h3>
+                    <p class="project-description">Aplicación web para OBS que muestra en tiempo real la canción que estás escuchando en Spotify. Perfecta para streamers.</p>
+                    <div class="project-footer">
+                        <a href="https://github.com/alejamt00/Spotify-Song-Tracker-for-OBS" target="_blank" class="project-link">
+                            <span>Ver en GitHub</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Matrix Chat -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">💬</div>
+                        <div class="project-tech-tags">
+                            <span class="tech-tag">HTML/CSS/JS</span>
+                            <span class="tech-tag">OBS</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Matrix Chat for OBS</h3>
+                    <p class="project-description">HTML para OBS que muestra el chat en pantalla con efecto estilo Matrix. Ideal para darle un toque único a tus streams.</p>
+                    <div class="project-footer">
+                        <a href="https://github.com/alejamt00/Matrix-like-chat-for-OBS" target="_blank" class="project-link">
+                            <span>Ver en GitHub</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AntiPromos Extension -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">🔧</div>
+                        <div class="project-tech-tags">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Edge Extension</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">AntiPromos Extension</h3>
+                    <p class="project-description">Extensión para Microsoft Edge que elimina automáticamente secciones promocionales del sitio PiviGames. JavaScript puro.</p>
+                    <div class="project-footer">
+                        <a href="https://github.com/alejamt00/AntiPromos-PiviGames-Extension" target="_blank" class="project-link">
+                            <span>Ver en GitHub</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Xirtam Media Player -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">📱</div>
+                        <div class="project-tech-tags">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Android</span>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Xirtam Media Player</h3>
+                    <p class="project-description">Reproductor multimedia para Android desarrollado como proyecto de clase. Permite reproducir audio y gestionar listas de reproducción.</p>
+                    <div class="project-footer">
+                        <a href="https://github.com/alejamt00/Xirtam" target="_blank" class="project-link">
+                            <span>Ver en GitHub</span>
+                            <span class="arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-bracket">&lt;</span>contact<span class="title-bracket">/&gt;</span>
+            </h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>// Conecta conmigo</h3>
+                    <p>¿Tienes un proyecto en mente? ¿Quieres colaborar? ¡Hablemos!</p>
+                    <div class="social-links">
+                        <a href="https://github.com/alejamt00" target="_blank" class="social-link">
+                            <span class="social-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                                </svg>
+                            </span>
+                            <span>github.com/alejamt00</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/alejamt00/" target="_blank" class="social-link">
+                            <span class="social-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                    <rect x="2" y="9" width="4" height="12"></rect>
+                                    <circle cx="4" cy="4" r="2"></circle>
+                                </svg>
+                            </span>
+                            <span>linkedin.com/in/alejamt00</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">// Nombre</label>
+                            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">// Email</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">// Mensaje</label>
+                            <textarea id="message" name="message" rows="5" required placeholder="Cuéntame sobre tu proyecto..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <span>Enviar Mensaje</span>
+                            <span class="arrow">→</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    <span class="code-comment">// </span>
+                    Hecho con 💚 por Alejandro "Osaki" Moreno Tejeda
+                </p>
+                <p class="footer-copy">&copy; 2024 Osaki Dev. Todos los derechos reservados.</p>
+            </div>
+        </div>
     </footer>
 
-    <script type="text/javascript" src="scripts/slick.min.js"></script>
-    <script type="text/javascript">
-        $('.slider-container').slick({
-          infinite: true, // permite navegar infinitamente
-          speed: 300, // velocidad de transición
-          slidesToShow: 1, // cantidad de slides a mostrar
-          adaptiveHeight: true, // ajusta la altura de los slides automáticamente
-          prevArrow: false,
-          nextArrow: false,
-          slideWidth: 100, // ancho de los slides
-        });
-      </script>
-    
+    <script src="scripts/main.js"></script>
 </body>
-
 </html>
