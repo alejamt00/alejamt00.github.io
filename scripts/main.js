@@ -178,14 +178,23 @@ window.addEventListener('scroll', () => {
 // ========================================
 document.addEventListener('DOMContentLoaded', () => {
     const typingElements = document.querySelectorAll('.typing-effect');
+    const isMobile = window.innerWidth < 768;
     
     typingElements.forEach((element, index) => {
         const text = element.textContent;
         element.textContent = '';
-        element.style.width = '0';
+        
+        // Only set width to 0 on desktop where we use nowrap
+        if (!isMobile) {
+            element.style.width = '0';
+        }
         
         setTimeout(() => {
-            element.style.width = '100%';
+            // Only animate width on desktop
+            if (!isMobile) {
+                element.style.width = '100%';
+            }
+            
             let i = 0;
             const typeWriter = setInterval(() => {
                 if (i < text.length) {
