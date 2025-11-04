@@ -148,8 +148,8 @@ body {
 
 @media (min-width: 768px) {
     .terminal-window {
-        max-width: 800px;
-        min-height: 350px;
+        max-width: 1000px;
+        min-height: 400px;
     }
 }
 
@@ -376,6 +376,7 @@ body {
 
 .title-bracket {
     color: var(--secondary);
+    letter-spacing: 0.1em;
 }
 
 /* ========================================
