@@ -402,7 +402,8 @@ body {
 }
 
 .github-stats {
-    max-width: 100%;
+    width: 80%;
+    max-width: 800px;
     height: auto;
     border-radius: 8px;
     border: 1px solid var(--border-color);
