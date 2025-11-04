@@ -36,13 +36,6 @@ body {
 }
 
 /* ========================================
-   CANVAS (hidden)
-   ======================================== */
-#matrix-canvas {
-    display: none;
-}
-
-/* ========================================
    NAVIGATION
    ======================================== */
 .navbar {
@@ -50,6 +43,7 @@ body {
     top: 0;
     width: 100%;
     background: rgba(10, 14, 39, 0.95);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
@@ -133,6 +127,9 @@ body {
 .hero-content {
     max-width: 800px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .terminal-window {
@@ -144,14 +141,17 @@ body {
     margin-bottom: 2rem;
     width: 100%;
     max-width: 600px;
-    min-height: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
 }
 
 @media (min-width: 768px) {
     .terminal-window {
         width: 1000px;
         max-width: 1000px;
-        min-height: 400px;
+        height: 400px;
     }
 }
 
@@ -162,6 +162,8 @@ body {
     align-items: center;
     gap: 1rem;
     border-bottom: 1px solid var(--border-color);
+    height: 50px;
+    flex-shrink: 0;
 }
 
 .terminal-buttons {
@@ -193,14 +195,18 @@ body {
 }
 
 .terminal-body {
-    padding: 1.5rem;
+    padding: 1rem;
     font-size: 0.9rem;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    min-height: 0;
 }
 
 @media (min-width: 768px) {
     .terminal-body {
         font-size: 0.95rem;
-        padding: 2rem;
+        padding: 1.5rem;
     }
 }
 
@@ -224,6 +230,15 @@ body {
 .typing-effect {
     overflow: hidden;
     animation: typing 1s steps(40, end);
+    display: block;
+    height: auto;
+    line-height: 1.6;
+}
+
+/* Force terminal content to not expand parent */
+.terminal-window * {
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* Only apply white-space nowrap on larger screens for typing effect */
@@ -347,33 +362,6 @@ body {
     gap: 2rem;
     margin-bottom: 2.5rem;
     flex-wrap: wrap;
-}
-
-.projects-link {
-    color: var(--primary);
-    text-decoration: none;
-    font-size: 1rem;
-    transition: all 0.3s;
-    position: relative;
-}
-
-.projects-link::before {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary);
-    transition: width 0.3s;
-}
-
-.projects-link:hover::before {
-    width: 100%;
-}
-
-.projects-link:hover {
-    color: var(--secondary);
 }
 
 .title-bracket {
