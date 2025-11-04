@@ -1,51 +1,69 @@
 // ========================================
-// MATRIX RAIN EFFECT
+// PROJECT PAGINATION
 // ========================================
-const canvas = document.getElementById('matrix-canvas');
-const ctx = canvas.getContext('2d');
+const projectsPerPage = 3; // Show 3 projects per page
+let currentPage = 0;
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function initPagination() {
+    const projectCards = document.querySelectorAll('.project-card');
+    const totalPages = Math.ceil(projectCards.length / projectsPerPage);
+    const paginationDots = document.getElementById('paginationDots');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
 
-const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
-const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const nums = '0123456789';
-const alphabet = katakana + latin + nums;
+    // Create pagination dots
+    paginationDots.innerHTML = '';
+    for (let i = 0; i < totalPages; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'pagination-dot';
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToPage(i));
+        paginationDots.appendChild(dot);
+    }
 
-const fontSize = 16;
-const columns = canvas.width / fontSize;
+    function showPage(page) {
+        currentPage = page;
+        
+        // Hide all cards first
+        projectCards.forEach(card => card.classList.add('hidden'));
+        
+        // Show cards for current page
+        const start = page * projectsPerPage;
+        const end = start + projectsPerPage;
+        for (let i = start; i < end && i < projectCards.length; i++) {
+            projectCards[i].classList.remove('hidden');
+        }
+        
+        // Update dots
+        document.querySelectorAll('.pagination-dot').forEach((dot, index) => {
+            dot.classList.toggle('active', index === page);
+        });
+        
+        // Update buttons
+        prevBtn.disabled = page === 0;
+        nextBtn.disabled = page === totalPages - 1;
+    }
 
-const rainDrops = [];
+    function goToPage(page) {
+        if (page >= 0 && page < totalPages) {
+            showPage(page);
+        }
+    }
 
-for (let x = 0; x < columns; x++) {
-    rainDrops[x] = Math.random() * canvas.height / fontSize;
+    // Button event listeners
+    prevBtn.addEventListener('click', () => goToPage(currentPage - 1));
+    nextBtn.addEventListener('click', () => goToPage(currentPage + 1));
+
+    // Initialize first page
+    showPage(0);
 }
 
-const draw = () => {
-    ctx.fillStyle = 'rgba(5, 8, 16, 0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = '#00ff41';
-    ctx.font = fontSize + 'px monospace';
-
-    for (let i = 0; i < rainDrops.length; i++) {
-        const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
-        ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-
-        if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-            rainDrops[i] = 0;
-        }
-        rainDrops[i]++;
-    }
-};
-
-setInterval(draw, 30);
-
-// Resize canvas on window resize
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-});
+// Initialize pagination when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPagination);
+} else {
+    initPagination();
+}
 
 // ========================================
 // MOBILE MENU TOGGLE
