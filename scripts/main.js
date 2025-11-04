@@ -24,15 +24,23 @@ function initPagination() {
     function showPage(page) {
         currentPage = page;
         
-        // Hide all cards first
-        projectCards.forEach(card => card.classList.add('hidden'));
+        // Hide all cards with fade out
+        projectCards.forEach(card => {
+            card.classList.add('hidden');
+            card.classList.remove('fade-in');
+        });
         
-        // Show cards for current page
+        // Show cards for current page with fade in
         const start = page * projectsPerPage;
         const end = start + projectsPerPage;
-        for (let i = start; i < end && i < projectCards.length; i++) {
-            projectCards[i].classList.remove('hidden');
-        }
+        
+        // Small delay to ensure fade effect
+        setTimeout(() => {
+            for (let i = start; i < end && i < projectCards.length; i++) {
+                projectCards[i].classList.remove('hidden');
+                projectCards[i].classList.add('fade-in');
+            }
+        }, 50);
         
         // Update dots
         document.querySelectorAll('.pagination-dot').forEach((dot, index) => {
