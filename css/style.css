@@ -386,15 +386,22 @@ body {
 /* ========================================
    TECH STACK SECTION
    ======================================== */
-.github-stats-container {
+.tech-stack-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.github-stats-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .github-stats {
-    width: 80%;
-    max-width: 800px;
+    width: 100%;
+    max-width: 500px;
     height: auto;
     border-radius: 8px;
     border: 1px solid var(--border-color);
@@ -762,6 +769,11 @@ body {
 
     .terminal-window {
         height: 350px;
+    }
+
+    .tech-stack-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .github-stats {
