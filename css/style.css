@@ -746,13 +746,13 @@ body {
         display: flex;
     }
 
-    .about-grid,
-    .contact-grid {
+    .about-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
     }
 
-    .about-grid {
-        gap: 2rem;
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 
     .tech-grid {
